@@ -1,15 +1,12 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
-const initialState = { randomValue: 'Hola' };
-
-const reducer = (state = initialState, action: any) => {
-  return state;
-};
+import { userReducer } from './reducers/userReducer';
 
 export const store = createStore(
-  reducer,
+  combineReducers({
+    user: userReducer,
+  }),
   composeWithDevTools(applyMiddleware(thunk)),
-  // other store enhancers if any
 );
