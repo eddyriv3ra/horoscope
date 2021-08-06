@@ -14,7 +14,7 @@ const Home = (): React.ReactElement => {
 
   React.useEffect(() => {
     dispatch(fetchUser());
-  }, []);
+  }, [dispatch]);
 
   if (userStatus === PENDING) {
     return <div>Loading</div>;
@@ -24,7 +24,7 @@ const Home = (): React.ReactElement => {
     <div className={styles.container}>
       <div className={styles.itemsContainer}>
         <img src={userImg} alt="profile pic" className={styles.pic} />
-        <Button onClick={() => null}>INGRESAR</Button>
+        <Button to="/gender">INGRESAR</Button>
       </div>
     </div>
   );

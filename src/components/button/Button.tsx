@@ -1,23 +1,26 @@
 import React, { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './button.module.scss';
 
 interface ButtonProps {
   children: React.ReactNode;
-  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: () => void;
   extendedClass?: string;
+  to: string;
 }
 
 const Button = ({
   children,
   onClick,
   extendedClass = '',
+  to = '',
 }: ButtonProps): ReactElement => {
   const customStyles = extendedClass || styles.button;
   return (
-    <button type="button" onClick={onClick} className={customStyles}>
+    <Link to={to} onClick={onClick} className={customStyles}>
       {children}
-    </button>
+    </Link>
   );
 };
 
