@@ -38,7 +38,12 @@
     "object-curly-newline": "off",
     "consistent-return": "off",
     "implicit-arrow-linebreak": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "operator-linebreak": [
+      "error",
+      "after",
+      { "overrides": { "+=": "before", "?": "before", ":": "before" } }
+    ]
   },
   "settings": {
     "import/resolver": {
