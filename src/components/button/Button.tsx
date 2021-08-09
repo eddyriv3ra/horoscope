@@ -18,7 +18,7 @@ const Button = ({
   disabled,
   to = '',
 }: ButtonProps): ReactElement => {
-  const customStyles = extendedClass || styles.button;
+  const customStyles = `${styles.button} ${extendedClass}`;
 
   const handleClick = disabled
     ? (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void =>

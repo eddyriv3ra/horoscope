@@ -3,6 +3,7 @@ import {
   FETCH_USER_PENDING,
   FETCH_USER_SUCCESS,
   PENDING,
+  SET_FORM_DATA,
   SET_GENDER,
 } from '../constants';
 
@@ -10,6 +11,9 @@ const initialState = {
   userData: {},
   status: PENDING,
   gender: '',
+  name: '',
+  email: '',
+  birthdate: '',
 };
 
 export const userReducer = (state = initialState, action: any) => {
@@ -22,6 +26,11 @@ export const userReducer = (state = initialState, action: any) => {
       return { ...state, userData: {}, status: action.status };
     case SET_GENDER:
       return { ...state, gender: action.payload };
+    case SET_FORM_DATA:
+      return {
+        ...state,
+        [action.target]: action.value,
+      };
     default:
       return state;
   }

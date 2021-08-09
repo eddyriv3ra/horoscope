@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+}
+
+.label {
+  color: rgb(6, 101, 175);
+  font-size: 1.3rem;
+  width: 30%;
+  padding-left: 2rem;
+}
+
+.input {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: rgb(6, 101, 175);
+  width: 60%;
+}

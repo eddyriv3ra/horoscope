@@ -5,3 +5,4 @@ export const PENDING = 'PENDING';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
 export const SET_GENDER = 'SET_GENDER';
+export const SET_FORM_DATA = 'SET_FORM_DATA';

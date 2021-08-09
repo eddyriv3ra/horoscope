@@ -1,0 +1,32 @@
+.container {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+  height: 85vh;
+  align-items: center;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 33%;
+}
+
+.extendedClassLabel {
+  width: 90%;
+}
+
+.extendedClassInput {
+  width: 10%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.backButton {
+  background-color: rgb(6, 101, 175);
+}
