@@ -7,6 +7,7 @@ import {
   FETCH_USER_PENDING,
   FETCH_USER_SUCCESS,
   PENDING,
+  SET_GENDER,
   SUCCESS,
 } from '../constants';
 
@@ -24,6 +25,11 @@ export const fetchUserSuccess = (data: any): any => ({
 export const fetchUserError = (): any => ({
   type: FETCH_USER_ERROR,
   status: ERROR,
+});
+
+export const setGender = (payload: any): any => ({
+  type: SET_GENDER,
+  payload,
 });
 
 export const fetchUser =

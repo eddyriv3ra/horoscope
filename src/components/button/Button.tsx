@@ -7,18 +7,26 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   extendedClass?: string;
-  to: string;
+  to?: string;
+  disabled?: boolean;
 }
 
 const Button = ({
   children,
   onClick,
   extendedClass = '',
+  disabled,
   to = '',
 }: ButtonProps): ReactElement => {
   const customStyles = extendedClass || styles.button;
+
+  const handleClick = disabled
+    ? (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void =>
+      event.preventDefault()
+    : onClick;
+
   return (
-    <Link to={to} onClick={onClick} className={customStyles}>
+    <Link to={to} onClick={handleClick} className={customStyles}>
       {children}
     </Link>
   );

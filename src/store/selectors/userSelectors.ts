@@ -5,3 +5,5 @@ export const getUserImg = (state: any): string =>
 
 export const getUserStatus = (state: any): userStatusType =>
   state?.user?.status;
+
+export const getGender = (state: any): string => state?.user?.gender;

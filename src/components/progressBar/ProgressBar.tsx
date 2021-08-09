@@ -16,12 +16,12 @@ const ProgressBar = ({
     <div className={styles.container}>
       <div className={styles.progressBarContainer}>
         <div className={styles.horizontalLine} />
-        {screens.map((_, i) => {
+        {screens.map((screen, i) => {
           const classes =
             index < i
               ? styles.progressBar
               : `${styles.progressBar} ${styles.fill}`;
-          return <div className={classes} />;
+          return <div className={classes} key={screen} />;
         })}
       </div>
       <h3 className={styles.description}>{description}</h3>
