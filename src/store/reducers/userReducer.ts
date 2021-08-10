@@ -5,6 +5,9 @@ import {
   PENDING,
   SET_FORM_DATA,
   SET_GENDER,
+  FETCH_HOROSCOPE_PENDING,
+  FETCH_HOROSCOPE_SUCCESS,
+  FETCH_HOROSCOPE_ERROR,
 } from '../constants';
 
 const initialState = {
@@ -14,6 +17,7 @@ const initialState = {
   name: '',
   email: '',
   birthdate: '',
+  horoscope: {},
 };
 
 export const userReducer = (state = initialState, action: any) => {
@@ -31,6 +35,13 @@ export const userReducer = (state = initialState, action: any) => {
         ...state,
         [action.target]: action.value,
       };
+    case FETCH_HOROSCOPE_PENDING:
+      return { ...state, horoscope: {} };
+    case FETCH_HOROSCOPE_SUCCESS:
+      return { ...state, horoscope: action.data };
+    case FETCH_HOROSCOPE_ERROR:
+      return { ...state, horoscope: {} };
+
     default:
       return state;
   }

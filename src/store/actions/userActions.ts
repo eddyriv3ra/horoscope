@@ -3,6 +3,9 @@
 /* eslint-disable indent */
 import {
   ERROR,
+  FETCH_HOROSCOPE_ERROR,
+  FETCH_HOROSCOPE_PENDING,
+  FETCH_HOROSCOPE_SUCCESS,
   FETCH_USER_ERROR,
   FETCH_USER_PENDING,
   FETCH_USER_SUCCESS,
@@ -39,6 +42,19 @@ export const setFormData = (target: any, value: string): any => ({
   value,
 });
 
+export const fetchHoroscopePending = (): any => ({
+  type: FETCH_HOROSCOPE_PENDING,
+});
+
+export const fetchHoroscopeSuccess = (data: any): any => ({
+  type: FETCH_HOROSCOPE_SUCCESS,
+  data,
+});
+
+export const fetchHoroscopeError = (): any => ({
+  type: FETCH_HOROSCOPE_ERROR,
+});
+
 export const fetchUser =
   () =>
   async (dispatch: any): Promise<void> => {
@@ -48,5 +64,17 @@ export const fetchUser =
       dispatch(fetchUserSuccess(data?.results[0]));
     } catch (error) {
       dispatch(fetchUserError());
+    }
+  };
+
+export const fetchHoroscope =
+  () =>
+  async (dispatch: any): Promise<void> => {
+    try {
+      dispatch(fetchHoroscopePending());
+      const data = await (await fetch('https://api.adderou.cl/tyaas/')).json();
+      dispatch(fetchHoroscopeSuccess(data?.horoscopo));
+    } catch (error) {
+      dispatch(fetchHoroscopeError());
     }
   };
